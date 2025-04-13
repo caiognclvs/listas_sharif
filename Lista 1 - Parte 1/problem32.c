@@ -2,10 +2,10 @@
 
 int main() {
 
-    int n, i, c, anterior, atual, agora, intercalada, maior, menor;
+    int n, i, c, anterior, atual, intercalada, maior, menor;
     
     while(1) {
-        n = i = anterior = atual = agora = maior = menor = 0;
+        n = i = anterior = atual = maior = menor = 0;
         intercalada = 1;
 
         scanf("%d", &n);
@@ -15,14 +15,13 @@ int main() {
             break;
         } else {
             for(i = 0; i < n; i++) {
-                scanf("%d", &agora);
+                scanf("%d", &atual);
     
                 if(i == 0) {
-                    anterior = agora;
+                    anterior = atual;
                 }
         
                 else if(i == 1) {
-                    atual = agora;
         
                     if(atual < anterior) {
                         maior = 1;
@@ -33,24 +32,24 @@ int main() {
         
                 else {
                     if(maior) {
-                        if(agora <= atual) {
+                        if(atual <= anterior) {
                             intercalada = 0;
                             break;
                         } else {
                             maior = 0;
                             menor = 1;
-                            atual = agora;
+                            anterior = atual;
                         }
                     }
         
                     else if(menor) {
-                        if(agora >= atual) {
+                        if(atual >= anterior) {
                             intercalada = 0;
                             break;
                         } else {
                             maior = 1;
                             menor = 0;
-                            atual = agora;
+                            anterior = atual;
                         }
                     }
                 }
