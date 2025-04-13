@@ -6,7 +6,7 @@ int main() {
 
     scanf("%d", &n);
 
-    if (n <= 0) {
+    if (n <= 0 || n > 31129999) {
         printf("Data invalida!\n");
     } else {
         d1 = (n / 10000000) % 10;

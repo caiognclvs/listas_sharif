@@ -6,7 +6,6 @@ int main() {
     
     while(1) {
         n = i = anterior = atual = agora = maior = menor = 0;
-        n = 0;
         intercalada = 1;
 
         scanf("%d", &n);
