@@ -2,33 +2,41 @@
 
 int main() {
 
-    int n, i, j, letra, vogal, consoante;
-    char c;
-    n = i = j = letra = vogal = consoante;
+    int n, i, j, d, letra, vogal, consoante;
+    char frase[10000];
+    n = i = j = d = letra = vogal = consoante = 0;
+
+    for(i = 0; i < 10000; i++) {
+        frase[i] = '\0';
+    }
 
     scanf("%d", &n);
+    while((d = getchar()) != '\n');
 
-    char v[n][10000];
+    for(j = 0; j < n; j++) {
+        fgets(frase, 10000, stdin);
 
-    for(i = 0; i < n; i++) {
-        while(c != '\n') {
-            scanf("%c", &v[i][j]);
-            j++;
+        for(i = 0; i < 10000; i++) {
+            if(frase[i] >= 65 && frase[i] <=122) {
+                if(frase[i] == 65 || frase[i] == 69 || frase[i] == 73 || frase[i] == 79 || frase[i] == 85 || frase[i] == 97 || frase[i] == 101 || frase[i] == 105 || frase[i] == 111 || frase[i] == 117) {
+                    vogal++;
+                } else {
+                    consoante++;
+                }
 
-            if(v[i][j] == 65 || v[i][j] == 69 || v[i][j] == 73 || v[i][j] == 79 || v[i][j] == 85 || v[i][j] == 97 || v[i][j] == 101 || v[i][j] == 105 || v[i][j] == 111 || v[i][j] == 117) {
-                vogal++;
                 letra++;
             }
-    
-            else if(v[i][j] >= 65 && v[i][j] <= 122) {
-                consoante++;
-                letra++;
-            }
-        }   
-
+        }
+        
         printf("Letras = %d\n", letra);
         printf("Vogais = %d\n", vogal);
         printf("Consoantes = %d\n", consoante);
+
+        for(i = 0; i < 10000; i++) {
+            frase[i] = '\0';
+        }
+
+        letra = vogal = consoante = 0;
     }
 
     return 0;

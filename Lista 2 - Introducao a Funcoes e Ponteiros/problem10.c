@@ -1,34 +1,39 @@
 #include <stdio.h>
 
-double compute_pi(int n) {
+long double compute_pi(unsigned long int n) {
 
-    int i;
-    double pi, num, den;
-    i = 0;
+    unsigned long int i;
+    long double pi, num, den;
+    i = 1;
     pi = den = 1;
     num = 2;
 
-    for(i = 0; i < n / 2; i++) {
+    for(i = 1; i <= n; i++) {
         pi *= num / den;
-        den += 2;
-        pi *= num / den;
-        num += 2;
+
+        if(i % 2 == 0) {
+            num += 2;
+        } else {
+            den += 2;
+        }
     }
 
-    return pi * 2;
+    pi *= 2;
+
+    return pi;
 }
 
 int main() {
 
-    int n;
-    double pi;
+    unsigned long int n;
+    long double pi;
     n = pi = 0;
 
-    scanf("%d", &n);
+    scanf("%lu", &n);
 
     pi = compute_pi(n);
 
-    printf("%.12lf\n", pi);
+    printf("%.12Lf\n", pi);
 
     return 0;
 }
